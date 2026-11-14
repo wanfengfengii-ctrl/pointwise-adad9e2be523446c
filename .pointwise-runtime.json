@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "kind": "cli",
+  "setup": [
+    ["python3", "-I", "-c", "import sys, os, tempfile; sys.path.insert(0, os.getcwd()); import portaljson; d=tempfile.mkdtemp(); it=portaljson.extract(iter([b'{\"stations\":[]}']), d); assert list(it)==[]; assert os.listdir(d)==[]; print('setup ok')"]
+  ],
+  "verify": [
+    ["python3", "-I", "run_tests.py"]
+  ],
+  "demo": [
+    ["python3", "-I", "demo.py"]
+  ]
+}
